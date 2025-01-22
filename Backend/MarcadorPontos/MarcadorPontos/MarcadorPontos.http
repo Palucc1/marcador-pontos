@@ -1,6 +1,6 @@
 @MarcadorPontos_HostAddress = http://localhost:5161
 
-GET {{MarcadorPontos_HostAddress}}/weatherforecast/
+GET {{MarcadorPontos_HostAddress}}/api/partidas/
 Accept: application/json
 
 ###
