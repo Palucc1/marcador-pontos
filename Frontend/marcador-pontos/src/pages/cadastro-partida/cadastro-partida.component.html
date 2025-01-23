@@ -1,1 +1,31 @@
-<p>cadastro-partida works!</p>
+<div class="container-base">
+    <div class="container">
+        <h2> Lançar pontos </h2>
+    </div>
+    <div class="container ">
+        <form [formGroup]="partidaForm" (ngSubmit)="salvar()">
+            <div class="field">
+                <label for="dataDoJogo">Data do Jogo</label>
+                <input id="dataDoJogo" type="text" formControlName="dataPartida" placeholder="DD/MM/AAAA" required
+                    [ngClass]="{'is-invalid': partidaForm.get('dataPartida')?.invalid && partidaForm.get('dataPartida')?.touched}"
+                    appMask="00/00/0000" />
+                <div class="alert-message"
+                    *ngIf="partidaForm.get('dataPartida')?.invalid && partidaForm.get('dataPartida')?.touched">
+                    * Data do jogo é obrigatória *.
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="pontosFeitos">Pontos Feitos</label>
+                <input id="pontosFeitos" type="text" formControlName="pontuacao" placeholder="Digite os pontos" required
+                    [ngClass]="{'is-invalid': partidaForm.get('pontuacao')?.invalid && partidaForm.get('pontuacao')?.touched}" />
+                <div class="alert-message"
+                    *ngIf="partidaForm.get('pontuacao')?.invalid && partidaForm.get('pontuacao')?.touched">
+                    * Apenas números são permitidos *.
+                </div>
+            </div>
+
+            <button class="button" type="submit" [disabled]="partidaForm.invalid">Salvar</button>
+        </form>
+    </div>
+</div>

@@ -6,7 +6,8 @@ export class ResultadosDto {
     mediaPontos: number;
     maiorPontuacao: number; 
     menorPontuacao: number;
-  
+    quantidadeRecordesBatidos: number;
+
     constructor(
       dataPrimeiroJogo: Date,
       dataUltimoJogo: Date,
@@ -14,7 +15,8 @@ export class ResultadosDto {
       totalPontos: number,
       mediaPontos: number,
       maiorPontuacao: number,
-      menorPontuacao: number
+      menorPontuacao: number,
+      quantidadeRecordesBatidos: number
     ) {
       this.dataPrimeiroJogo = dataPrimeiroJogo;
       this.dataUltimoJogo = dataUltimoJogo;
@@ -23,5 +25,6 @@ export class ResultadosDto {
       this.mediaPontos = mediaPontos;
       this.maiorPontuacao = maiorPontuacao;
       this.menorPontuacao = menorPontuacao;
+      this.quantidadeRecordesBatidos = quantidadeRecordesBatidos;
     }
   }

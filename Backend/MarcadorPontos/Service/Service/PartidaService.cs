@@ -1,5 +1,4 @@
-﻿using Domain.DTO;
-using Domain.Entity;
+﻿using Domain.Entity;
 using Repository.Interface;
 using Service.Interface;
 
@@ -14,7 +13,7 @@ namespace Service.Service
         {
             var ultimoRecorde = _repository.GetLastRecord();
 
-            if (ultimoRecorde is not null && ultimoRecorde.Pontuacao < partida.Pontuacao)
+            if (ultimoRecorde is null || (ultimoRecorde is not null && ultimoRecorde.Pontuacao < partida.Pontuacao))
                 partida.RecordeQuebrado = true;
 
             _repository.Add(partida);

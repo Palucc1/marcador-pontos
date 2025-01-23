@@ -1,1 +1,45 @@
-<p>resultados works!</p>
+<div class="container-base" style="width: 50%;">
+    <div class="container">
+
+        <div class="results-container" *ngIf="resultados; else loading">
+            <div class="results-title">
+                <h2 style="text-align: start;">Resultados</h2>
+                
+                <p style="text-align: end;">
+                    <strong>{{ formatarData(resultados.dataPrimeiroJogo.toString()) }}</strong> - <strong>{{ formatarData(resultados.dataUltimoJogo.toString()) }}</strong>
+                </p>
+            </div>
+            
+            <div class="results-title">
+                <p style="text-align: start;">Jogos disputados: </p>
+                <p style="text-align: end;">{{ resultados.quantidadePartidas }}</p>
+            </div>
+            <div class="results-title">
+                <p style="text-align: start;">Total de pontos marcados na temporada: </p>
+                <p style="text-align: end;">{{ resultados.totalPontos }}</p>
+            </div>
+            <div class="results-title">
+                <p style="text-align: start;">Média de pontos por jogo: </p>
+                <p style="text-align: end;">{{ resultados.mediaPontos }}</p>
+            </div>
+            <div class="results-title">
+                <p style="text-align: start;">Maior pontuação em um jogo: </p>
+                <p style="text-align: end;">{{ resultados.maiorPontuacao }}</p>
+            </div>
+            <div class="results-title">
+                <p style="text-align: start;">Menor pontuação em um jogo: </p>
+                <p style="text-align: end;">{{ resultados.menorPontuacao }}</p>
+            </div>
+            <div class="results-title">
+                <p style="text-align: start;">Quantidade de vezes que bateu o próprio recorde: </p>
+                <p style="text-align: end;">{{ resultados.quantidadeRecordesBatidos }}</p>
+            </div>
+        </div>
+
+        <ng-template #loading>
+            <p *ngIf="carregandoResultados">Carregando os resultados...</p>
+        </ng-template>
+
+        <p *ngIf="!carregandoResultados && !resultados">Não há resultados para exibir.</p>
+    </div>
+</div>

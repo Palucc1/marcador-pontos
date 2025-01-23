@@ -28,7 +28,8 @@ namespace Application.Application
                     MaiorPontuacao = partidas.OrderByDescending(x => x.Pontuacao).First().Pontuacao,
                     TotalPontos = partidas.Sum(p => p.Pontuacao),
                     MediaPontos = partidas.Average(p => p.Pontuacao),
-                    QuantidadePartidas = partidas.Count()
+                    QuantidadePartidas = partidas.Count(),
+                    QuantidadeRecordesBatidos = partidas.Where(x => x.RecordeQuebrado == true).Count()
                 };
             }
 

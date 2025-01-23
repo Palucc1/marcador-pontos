@@ -9,5 +9,6 @@
         public double MediaPontos { get; set; }
         public ushort MaiorPontuacao { get; set; }
         public ushort MenorPontuacao { get; set; }
+        public int QuantidadeRecordesBatidos { get; set; }
     }
 }

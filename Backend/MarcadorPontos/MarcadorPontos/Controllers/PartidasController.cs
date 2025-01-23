@@ -16,7 +16,9 @@ namespace MarcadorPontos.Controllers
         {
             try
             {
-                return Ok(_application.GetResults());
+                var resultados = _application.GetResults();
+
+                return Ok(resultados);
             }
             catch (Exception ex)
             {
