@@ -31,7 +31,9 @@ namespace Repository.Repository
         {
             using (var ctx = new DataContext(_options))
             {
-                return ctx.Set<Partida>().OrderByDescending(x => x.DataPartida).FirstOrDefault(x => x.RecordeQuebrado);
+                var partidas = ctx.Set<Partida>().OrderByDescending(x => x.DataPartida);
+                
+                return partidas.First(x => x.RecordeQuebrado);
             }
         }
     }

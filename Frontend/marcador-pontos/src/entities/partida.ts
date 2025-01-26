@@ -1,13 +1,13 @@
 export class Partida {
     id: number; 
-    dataPartida: Date; 
+    dataPartida: string; 
     recordeQuebrado: boolean;
     pontuacao: number; 
 
     constructor(
         id: number,
-        dataPartida: Date,
-        recordeQuebrado: boolean,
+        dataPartida: string,
+        recordeQuebrado: boolean = false,
         pontuacao: number
     ) {
         this.id = id;

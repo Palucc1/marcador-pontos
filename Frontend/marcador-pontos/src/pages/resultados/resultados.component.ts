@@ -24,7 +24,6 @@ export class ResultadosComponent implements OnInit {
   buscarResultados(): void {
     this.partidaService.recuperarResultados().subscribe({
       next: (dados: ResultadosDto) => {
-        console.log(dados)
           this.resultados = dados;
           this.carregandoResultados = false; 
       },

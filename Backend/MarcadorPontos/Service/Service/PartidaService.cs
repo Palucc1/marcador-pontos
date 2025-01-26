@@ -16,6 +16,8 @@ namespace Service.Service
             if (ultimoRecorde is null || (ultimoRecorde is not null && ultimoRecorde.Pontuacao < partida.Pontuacao))
                 partida.RecordeQuebrado = true;
 
+            partida.DataPartidaConvertida = DateOnly.Parse(partida.DataPartida);
+
             _repository.Add(partida);
         }
 

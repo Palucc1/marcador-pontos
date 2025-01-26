@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { PartidaService } from '../../services/partida.service';
 import { Partida } from '../../entities/partida';
 import { CommonModule, DatePipe } from '@angular/common';
@@ -21,7 +21,7 @@ export class CadastroPartidaComponent {
       id: 0,
       dataPartida: ['', [Validators.required]],
       pontuacao: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
-      recordeQuebrado: [false]
+      recordeQuebrado: [false, [Validators.required]]
     });
   }
 
@@ -29,13 +29,16 @@ export class CadastroPartidaComponent {
     if (this.partidaForm.valid) {
       const partida: Partida = this.partidaForm.value;
 
-      partida.dataPartida = this.formatarData(partida.dataPartida.toString());
-
       this.partidaService.salvarPartida(partida).subscribe({
         next: (response) => {
           console.log('Partida salva com sucesso:', response);
           alert('Partida salva com sucesso!');
-          this.partidaForm.reset();
+          this.partidaForm.reset({
+            id: 0,
+            dataPartida: '',
+            pontuacao: '',
+            recordeQuebrado: false
+          });
         },
         error: (err) => {
           console.error('Erro ao salvar partida:', err);
@@ -48,11 +51,5 @@ export class CadastroPartidaComponent {
     } else {
       alert('Formulário inválido. Por favor, preencha corretamente.');
     }
-  }
-
-  formatarData(data: string): Date {
-    var dateStr = this.datePipe.transform(data, 'MM/dd/yyyy')!;
-    console.log(dateStr);
-    return new Date(dateStr);
   }
 }

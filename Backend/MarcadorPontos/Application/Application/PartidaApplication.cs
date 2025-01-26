@@ -18,13 +18,13 @@ namespace Application.Application
 
             var partidas = _service.GetAll();
 
-            if (partidas is not null && partidas.Count > 0) 
+            if (partidas is not null && partidas.Count > 0)
             {
                 resultado = new ResultadosDto
                 {
-                    DataPrimeiroJogo = partidas.OrderBy(x => x.DataPartida).First().DataPartida,
-                    DataUltimoJogo = partidas.OrderByDescending(x => x.DataPartida).First().DataPartida,
-                    MenorPontuacao = partidas.OrderBy(x =>x.Pontuacao).First().Pontuacao,
+                    DataPrimeiroJogo = partidas.OrderBy(x => x.DataPartidaConvertida).First().DataPartidaConvertida,
+                    DataUltimoJogo = partidas.OrderByDescending(x => x.DataPartidaConvertida).First().DataPartidaConvertida,
+                    MenorPontuacao = partidas.OrderBy(x => x.Pontuacao).First().Pontuacao,
                     MaiorPontuacao = partidas.OrderByDescending(x => x.Pontuacao).First().Pontuacao,
                     TotalPontos = partidas.Sum(p => p.Pontuacao),
                     MediaPontos = partidas.Average(p => p.Pontuacao),
@@ -32,6 +32,8 @@ namespace Application.Application
                     QuantidadeRecordesBatidos = partidas.Where(x => x.RecordeQuebrado == true).Count()
                 };
             }
+            else
+                resultado = null;
 
             return resultado;
         }
