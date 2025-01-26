@@ -80,19 +80,31 @@ update-database
 Esse comando criará a base 'RegistroPartidas' e aplicará as migrations do projeto, criando a tabela 'Partidas'
 
 ## Estrutura do Projeto
+
 ### Frontend (Angular)
-src/app/components: Contém os componentes 'apps' utilizados como raíz da interface do usuário.
-src/app/services: Contém serviços que se comunicam com o backend.
-src/app/entities: Contém as definições de modelos de dados para a aplicação.
-src/app/dtos: Contém as definições de 'Data Transfer Objects' para a aplicação.
-src/app/utils: Contém os arquivos com funções de uso geral.
-src/app/pages: Contém os componentes de interface.
+
+- src/app/components: Contém os componentes 'apps' utilizados como raíz da interface do usuário.
+
+- src/app/services: Contém serviços que se comunicam com o backend.
+
+- src/app/entities: Contém as definições de modelos de dados para a aplicação.
+
+- src/app/dtos: Contém as definições de 'Data Transfer Objects' para a aplicação.
+
+- src/app/utils: Contém os arquivos com funções de uso geral.
+
+- src/app/pages: Contém os componentes de interface.
 
 ### Backend (.NET)
-Presentation: Contém os controladores que gerenciam as requisições HTTP, além de arquivos de configuração.
-Application: Contém classes e interfaces que tratam de regras envolvendo mais de uma entidade.
-Domain: Classe de domínio, contém as principais regras do projeto, os modelos de dados, de serviço e também de testes.
-Repository: Contém as configurações de acesso ao banco de dados, incluindo migrations, classes de contexto, repositório e a classe que trata da gestão de dependências.
+
+- Presentation: Contém os controladores que gerenciam as requisições HTTP, além de arquivos de configuração.
+
+- Application: Contém classes e interfaces que tratam de regras envolvendo mais de uma entidade.
+
+- Domain: Classe de domínio, contém as principais regras do projeto, os modelos de dados, de serviço e também de testes.
+
+- Repository: Contém as configurações de acesso ao banco de dados, incluindo migrations, classes de contexto, repositório e a classe que trata da gestão de dependências.
 
 ### Banco de Dados (SQL Server)
-Tabela de Partidas: Armazena os dados das partidas de basquete.
+
+- Tabela de Partidas: Armazena os dados das partidas de basquete.
